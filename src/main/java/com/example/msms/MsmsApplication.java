@@ -8,6 +8,7 @@ public class MsmsApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MsmsApplication.class, args);
+        ////
     }
 
 }
