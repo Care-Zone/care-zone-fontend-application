@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Care Zone</title>
+    <link rel="stylesheet" href="css/bulma.min.css">
+</head>
+<body>
+
+<section class="card-zone">
+    <center>
+        Care Zone <a role="button" class=" post-button button is-primary" href="/create"> Post a question</a>
+    </center>
+</section>
+
+<section class="section">
+    <div class="container">
+        <table class="table is-fullwidth">
+            <tbody class="card posts">
+            <div th:each="post : ${post}" class="card posts">
+                <strong th:text="${post.description}"></strong> &emsp; <p th:text="${post.symptom}" class="symptoms"></p>
+                <div class="buttons ">
+                    <a class="button is-link is-small action-button " th:href="@{/update(postId=${post.id})}">
+                        Update
+                    </a>
+                    <a class="button is-danger is-small action-button" th:href="@{/delete(postId=${post.id})}">
+                        Delete
+                    </a>
+                </div>
+            </div>
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>
+</html>

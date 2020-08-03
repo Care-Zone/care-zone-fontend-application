@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Care Zone</title>
+    <link rel="stylesheet" href="css/bulma.min.css">
+</head>
+<body>
+<section class="card-zone">
+    <center>
+        Care Zone <a role="button" class=" post-button button is-warning" href="/"> Back to home</a>
+    </center>
+</section>
+<section class="section is-center">
+    <div class="container is-center">
+        <center><h4 class="title is-4 create-header">Create new post</h4></center>
+        <div class="columns">
+            <div class="column">
+                <div th:if="${response}" class="mb-3">
+                    <article class="message is-success" th:if="${response.status} == 200">
+                        <div class="message-body">
+                            <div>
+                                Post created successfully
+                            </div>
+                            <a class="mt-2" href="/">Go to Home</a>
+                        </div>
+                    </article>
+                    <article class="message is-success" th:if="${response.status} == 200">
+                        <div class="message-body">
+                            <div>
+                                Post created successfully
+                            </div>
+                            <a class="mt-2" href="/">Go to Home</a>
+                        </div>
+                    </article>
+                </div>
+                <form action="#" th:action="@{/create}" th:object="${post}" method="post" class="is-center">
+                    <div class="field">
+                        <label class="label">Description</label>
+                        <div class="control">
+                            <input class="input is-success" type="text" placeholder="Describe your child behaviour" th:field="*{description}" required/>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Symptoms</label>
+                        <div class="control">
+                            <input class="input is-success" type="text" placeholder="Explain symptoms child show" th:field="*{symptom}"
+                                   required/>
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                        <p class="control">
+                            <input type="reset" class="button is-danger" value="Reset"/>
+                        </p>
+                        <p class="control">
+                            <input type="submit" class="button is-link" value="Save"/>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

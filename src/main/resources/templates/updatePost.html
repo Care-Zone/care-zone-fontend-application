@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Care Zone</title>
+    <link rel="stylesheet" href="css/bulma.min.css">
+</head>
+<body>
+<section class="card-zone">
+    <center>
+        Care Zone <a role="button" class=" post-button button is-warning" href="/"> Back to home</a>
+    </center>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h4 class="title is-4">Update Post</h4>
+        <div class="columns">
+            <div class="column">
+                <div th:if="${response}" class="mb-3">
+                    <article class="message is-success" th:if="${response.status} == 200">
+                        <div class="message-body">
+                            <div>
+                                Post updated successfully
+                            </div>
+                            <a class="mt-2" href="/">Go to Home</a>
+                        </div>
+                    </article>
+                    <article class="message is-success" th:if="${response.status} == 200">
+                        <div class="message-body">
+                            <div>
+                                Post updated successfully
+                            </div>
+                            <a class="mt-2" href="/">Go to Home</a>
+                        </div>
+                    </article>
+
+                </div>
+                <form action="#" th:action="@{/update(postId=${post.id})}" th:object="${post}" method="post">
+                    <input type="hidden" th:field="*{id}">
+                    <fieldset disabled class="mb-3">
+                        <div class="field">
+                            <label class="label">Id</label>
+                            <div class="control">
+                                <input class="input is-warning" type="text" th:field="*{id}">
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="field">
+                        <label class="label">Description</label>
+                        <div class="control">
+                            <input class="input is-danger" type="text" placeholder="Enter new description"
+                                   th:field="*{description}"/>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Symptoms</label>
+                        <div class="control">
+                            <input class="input is-danger" type="text" placeholder="Explain the symptoms" th:field="*{symptom}"/>
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                        <p class="control">
+                            <input type="submit" class="button is-link" value="Save"/>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
