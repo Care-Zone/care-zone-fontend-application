@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>StudentX</title>
+    <title>Care Zone</title>
     <link rel="stylesheet" href="css/bulma.min.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-                <h1 class="title">StudentX</h1>
+                <h1 class="title">Care Zone</h1>
             </a>
 
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
@@ -34,21 +34,21 @@
 
 <section class="section">
     <div class="container">
-        <h4 class="title is-4">Delete Student</h4>
+        <h4 class="title is-4">Delete Post</h4>
         <div class="columns">
             <div class="column is-half">
                 <div th:if="${response}" class="mb-3">
                     <article class="message is-success" th:if="${response.status} == 200">
                         <div class="message-body">
                             <div>
-                                Student deleted successfully
+                                Post deleted successfully
                             </div>
                             <a class="mt-2" href="/">Go to Home</a>
                         </div>
                     </article>
                     <article class="message is-success" th:if="${response.status} != 200">
                         <div class="message-body">
-                            Student delete success
+                            Post delete success
                         </div>
                         <a class="mt-2" href="/">Go to Home</a>
                 </div>
