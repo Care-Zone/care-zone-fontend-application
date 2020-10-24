@@ -21,7 +21,7 @@
             <div th:each="post : ${post}" class="card posts">
                 <strong th:text="${post.description}"></strong> &emsp; <p th:text="${post.symptom}" class="symptoms"></p>
                 <div class="buttons ">
-                    <a class="button is-link is-small action-button " th:href="@{/update(postId=${post.id})}">
+                    <a class="button is-link is-small action-button" th:href="@{/update(postId=${post.id})}">
                         Update
                     </a>
                     <a class="button is-danger is-small action-button" th:href="@{/delete(postId=${post.id})}">

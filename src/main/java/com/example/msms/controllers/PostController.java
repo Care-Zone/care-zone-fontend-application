@@ -1,10 +1,9 @@
 package com.example.msms.controllers;
 
-import com.example.msms.model.ApiResponse;
-import com.example.msms.model.Post;
+import com.example.msms.models.ApiResponse;
+import com.example.msms.models.Post;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javafx.geometry.Pos;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -30,7 +29,7 @@ public class PostController {
 
     @GetMapping()
     public String postList(Model model) {
-        Post[] posts = restTemplate.getForObject("http://localhost:8080/api/posts/all", Post[].class);
+        Post[] posts = restTemplate.getForObject("http://localhost:8084/api/posts/all", Post[].class);
 
         model.addAttribute("post", posts);
         return "postList";
@@ -45,7 +44,7 @@ public class PostController {
 
     @PostMapping(path = "/create")
     public String createAction(@ModelAttribute Post post, Model model) {
-        ApiResponse response = restTemplate.postForObject("http://localhost:8080/api/posts/add", post, ApiResponse.class);
+        ApiResponse response = restTemplate.postForObject("http://localhost:8084/api/posts/add", post, ApiResponse.class);
 
         model.addAttribute("post", new Post());
         model.addAttribute("response", response);
@@ -55,7 +54,7 @@ public class PostController {
 
     @GetMapping(path = "/update")
     public String updateFrom(@RequestParam() Integer postId, Model model) {
-        Post post = restTemplate.getForObject("http://localhost:8080/api/posts/" + postId, Post.class);
+        Post post = restTemplate.getForObject("http://localhost:8084/api/posts/" + postId, Post.class);
         model.addAttribute("post", post);
 
         return "updatePost";
@@ -71,7 +70,7 @@ public class PostController {
             HttpEntity<String> entity = new HttpEntity<>(jsonBody, headers);
 
             ApiResponse response = restTemplate.exchange(
-                    "http://localhost:8080/api/posts/" + post.getId(),
+                    "http://localhost:8084/api/posts/" + post.getId(),
                     HttpMethod.PUT,
                     entity,
                     ApiResponse.class
@@ -93,7 +92,7 @@ public class PostController {
 
     @GetMapping(path = "/delete")
     public String deleteFrom(@RequestParam() Integer postId, Model model) {
-        Post post = restTemplate.getForObject("http://localhost:8080/api/posts/" + postId, Post.class);
+        Post post = restTemplate.getForObject("http://localhost:8084/api/posts/" + postId, Post.class);
         model.addAttribute("post", post);
 
         return "deletePost";

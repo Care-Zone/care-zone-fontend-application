@@ -1,4 +1,4 @@
-package com.example.msms.model;
+package com.example.msms.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
