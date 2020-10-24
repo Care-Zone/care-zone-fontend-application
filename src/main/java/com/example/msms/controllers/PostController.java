@@ -105,7 +105,7 @@ public class PostController {
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
 
         ApiResponse response = restTemplate.exchange(
-                "http://localhost:8080/api/posts/" + post.getId(),
+                "http://localhost:8084/api/posts/" + post.getId(),
                 HttpMethod.DELETE,
                 entity,
                 ApiResponse.class
